@@ -1,0 +1,86 @@
+h1, h2{
+ color: #54a2d6;
+ font-weight: 200;
+}
+
+h1{
+font-size: 35px;
+text-align: center;
+color: black;
+}
+
+h2{
+font-size: 33px;
+text-align: left;
+}
+
+form{
+text-align: center;
+}
+.app-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.celcius-fahrenheit {
+  margin: 0 0 0 30px;
+}
+
+.panorama {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 1%
+}
+
+
+.temperature {
+  font-size: 75px;
+  color: #346d92;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.weather-app {
+    max-width: 700px;
+    margin: auto;
+    padding: 50px;
+    border: 1px solid;
+    border-radius: 5rem;
+    border-color: rgb(0, 135, 175);
+    margin-top: 20px;
+}
+
+
+.weather-icon{
+ font-size: 80px;
+}
+
+.temprature{
+font-size: 65px;
+}
+
+.week{
+text-align: center;
+}
+
+
+.searchbox{
+opacity: 25%;
+border-radius: 30px;
+}
+
+.col-2{
+flex: 0 auto;
+width: 16%;
+}
+
+.week-row{
+display: flex;
+}
