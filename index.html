@@ -1,97 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://kit.fontawesome.com/618d500323.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 
     <title> Weather App</title>
 </head>
+</head>
 
-<body>
-    <div class="weather-app">
-        <div class="container">
-            <div class="app-wrapper">
-                <div class="panorama">
-                    <div class="row">
-                        <form id="search-form">
-                            </br>
-                            <input class="searchBox" type="text" placeholder=" Enter city" id="city-input" />
-                            <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect>Search</button>
-                            <div class="btn-group celcius-fahrenheit" role="group"
-                                aria-label="Basic radio toggle button group">
-                        </form>
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" />
-                        <label class="btn btn-outline-primary" for="btnradio1" id="celsius-link">ºC</label>
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" />
-                        <label class="btn btn-outline-primary" for="btnradio3" id="fahrenheit-link">ºF</label>
-
-
-
-
-
-
-
-
-                    </div>
-                    </br>
-                    <div class="row">
-                        <h1 id="date"> Sunday 0:23 </h1>
-                    </div>
-
-                    <div class="row">
-                        <h2 id="city"> Tromsø </h2>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <div class="clearfix">
-                            <div class="float-left">
-                                <i class="fas fa-cloud weather-icon"></i>
-                                <strong class="temperature" id="temperature"> 21°C </strong>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="d-flex flex-row week-row" id="forcast">
-
-
-                        <div class="p-2"> Monday <i class="fas fa-sun"></i> 11°C</div>
-                        </br>
-                        <div class="p-2"> Tuesday <i class="fas fa-cloud weather-icon-small"></i> 10°C</div>
-                        </br>
-                        <div class="p-2"> Wednsday <i class="fas fa-sun"></i> 12°C</div>
-                        </br>
-                        <div class="p-2"> Thursday <i class="fas fa-cloud weather-icon-small"></i> 9°C</div>
-                        </br>
-                        <div class="p-2"> Friday <i class="fas fa-cloud-rain"></i> 11°C</div>
-                        </br>
-                        <div class="p-2"> Saterday <i class="fas fa-cloud weather-icon-small"></i> 10C</div>
-                        </br>
-                    </div>
-
-
-
-
-                </div>
+<body class="background">
+    <div class="body">
+        <header>
+            <h1 class="title"> Weather </h1>
+            <span>
+                <form class="citySearch" id="search-form">
+                    <input type="searchBox" type="text" placeholder="Enter city..." id="city-input" class="search" />
+                    <input type="submit" value="Search" class="search-button" />
+                </form>
+            </span>
+        </header>
+           <h2 class="city"> <span class="city-name"> Tromsø </span> <span class="date"> <span id="date"> Friday 09:00 </span> </span></h2>
+    
+        <div class="row">
+            <div class="col-7">
+                <p class="temperature" id="temperature">
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Clear" id="large-icon" /> <span
+                        class="temp" , id="temp"> 19 </span> <span class="units"> <a href="#"
+                            class="conversion active" , id="celsius">°C</a> | <a href="#" class="conversion" ,
+                            id="fahrenheit">°F</a></span>
+                </p>
+            </div>
+            <div class="col-4 additional-info">
+                <p>
+                    <br />
+                    Humidity: <span class="humidity">44</span>% <br />
+                    Wind: <span class="wind">4</span> km/h<br />
+                    <br />
+                    <span class="description">Cloudy</span>
+                </p>
             </div>
         </div>
-    </div>
+        <div class="forecast" id="forecast">
+            <div class="row">
 
-    <script src="src/script.js"></script>
-  
+                <div class="row">
+                    <div class="col-2 forecast-preview">
+                        <div class="forecast-time">Monday</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Clear" id="small-icon" width="60px">
+                        <div class="forecast-temp"><span class="upper">17°</span> | <span class="lower">7°</span></div>
+                    </div>
+                    <div class="col-2 forecast-preview">
+                        <div class="forecast-time">Tuesday</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Clear" id="small-icon" width="60px">
+                        <div class="forecast-temp"><span class="upper">16°</span> | <span class="lower">6°</span></div>
+                        
+                    </div>
+                    <div class="col-2 forecast-preview">
+                        <div class="forecast-time">Wednsday</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Clear" id="small-icon" width="60px">
+                        <div class="forecast-temp"><span class="upper">15°</span> | <span class="lower">5°</span></div>
+                    </div>
+                    <div class="col-2 forecast-preview">
+                        <div class="forecast-time">Thursday</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Clear" id="small-icon" width="60px">
+                        <div class="forecast-temp"><span class="upper">14°</span> | <span class="lower">4°</span></div>
+                    </div>
+                    <div class="col-2 forecast-preview">
+                        <div class="forecast-time">Friday</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Clear" id="small-icon" width="60px">
+                        <div class="forecast-temp"><span class="upper">13°</span> | <span class="lower">3°</span></div>
+                    </div>
+                    <div class="col-2 forecast-preview">
+                        <div class="forecast-time">Saturday</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Clear" id="small-icon" width="60px">
+                        <div class="forecast-temp"><span class="upper">12°</span> | <span class="lower">2°</span></div>
+                    </div>
+                </div>
 
-    <a href="https://github.com/MayuraAP/weather-app-shecodes" class="Open-source code"> <strong> Open-source code</strong> </a>
-    by Mayura Pakiratahn
+            </div>
+        </div>
+        
+        <script src="src/script.js"></script>
 </body>
+
+<p class="footer">
+    <a href="https://github.com/MayuraAP/weather-app-shecodes" class="Open-source code"> Open-source
+        code </a> by Mayura Pakirathan
+</p>
 
 </html>
